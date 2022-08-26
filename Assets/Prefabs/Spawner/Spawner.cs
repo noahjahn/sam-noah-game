@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public bool shouldSpawn = true;
     public GameObject enemy;
     public int chanceOfSpawning = 0;
     private int fixedUpdateCount = 0;
@@ -27,6 +28,9 @@ public class Spawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Instantiate(enemy, new Vector2(Random.Range(0, 10), Random.Range(0, 10)), Quaternion.identity);
+        if (shouldSpawn)
+        {
+            Instantiate(enemy, new Vector2(Random.Range(0, 10), Random.Range(0, 10)), Quaternion.identity);
+        }
     }
 }

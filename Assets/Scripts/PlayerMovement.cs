@@ -7,19 +7,19 @@ public class PlayerMovement : MonoBehaviour
    
     public float moveSpeed = 5f;
         
-    public Rigidbody2D rb;
+    public Rigidbody2D player;
 
-    Vector2 movement;
+    private Vector2 movement;
    
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-       movement.x = Input.GetAxisRaw("Horizontal"); 
-       movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal"); 
+        movement.y = Input.GetAxisRaw("Vertical");
     }
 
-    void FixedUpdate()
+    public void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime); 
+        player.MovePosition(player.position + movement.normalized * moveSpeed * Time.fixedDeltaTime); 
     }
 }
